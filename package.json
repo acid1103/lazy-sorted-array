@@ -8,7 +8,8 @@
     "build": "tsc",
     "lint": "tslint --project . && tslint --project test/",
     "test": "npm run lint && npm run build && cd test && npm test",
-    "coverage": "nyc --reporter=lcov --reporter=html npm test"
+    "coverage": "nyc --reporter=html npm test",
+    "travis": "nyc --reporter=lcov npm test"
   },
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",

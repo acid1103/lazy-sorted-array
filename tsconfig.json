@@ -9,6 +9,7 @@
             "*": ["node_modules/*"]
         },
         "declaration": true,
+        "sourceMap": true,
         // "removeComments": true
     },
     "include": [
