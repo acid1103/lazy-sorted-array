@@ -9,4 +9,6 @@ node_js:
 
 install: npm i && cd test && npm i && cd ..
 
-script: npm test
+script: npm run coverage
+
+after_script: cat ./coverage/lcov.info | ./node_modules/.bin/coveralls

@@ -1,5 +1,3 @@
-import { removeAllListeners } from "cluster";
-
 /**
  * The implementation of
  * [ProxyHandler](https://developer.mozilla.org/JavaScript/Reference/Global_Objects/Proxy/handler) which handles
