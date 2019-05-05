@@ -1,0 +1,14 @@
+language: node_js
+os:
+  - windows
+  - linux
+  - osx
+node_js:
+  - "node"
+  - 10
+  - 8
+  - 6
+
+install: npm i && cd test && npm i && cd ..
+
+script: npm test
