@@ -1,0 +1,21 @@
+{
+  "name": "lazy-sorted-array-test",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && mocha ./test.js"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.13.7",
+    "mocha": "^6.1.4",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "lazy-sorted-array": "file:.."
+  }
+}

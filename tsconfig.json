@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "outDir": "dist",
+        "baseUrl": ".",
+        "paths": {
+            "*": ["node_modules/*"]
+        },
+        "declaration": true,
+        // "removeComments": true
+    },
+    "include": [
+        "src/*"
+    ],
+    "jsdoc": {
+        "out": "docs",
+        "access": "public"
+    }
+}

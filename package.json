@@ -1,0 +1,29 @@
+{
+  "name": "lazy-sorted-array",
+  "version": "1.0.0",
+  "description": "A simple sorted array",
+  "main": "./dist/sorted-array.js",
+  "typings": "./dist/sorted-array.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint --project . && tslint --project test/",
+    "test": "npm run lint && npm run build && cd test && npm test",
+    "coverage": "nyc --reporter=html npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acid1103/lazy-sorted-array.git"
+  },
+  "bugs": {
+    "url": "https://github.com/acid1103/lazy-sorted-array/issues"
+  },
+  "homepage": "https://github.com/acid1103/lazy-sorted-array#readme",
+  "author": "Steven Fontaine",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/node": "^11.13.7",
+    "nyc": "^14.1.0",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
+  }
+}
