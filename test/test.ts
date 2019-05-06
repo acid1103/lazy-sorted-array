@@ -395,11 +395,21 @@ describe("SortedArray", function() {
                 const sa = newsa();
                 deepStrictEqual(sa.toString(), expected.toString());
             });
+            it("should not error in a circular array", function() {
+                const sa = new SortedArray<SortedArray<any>>(() => 0);
+                sa.add(sa);
+                strictEqual(sa.toString(), "[Circular]");
+            });
         });
         describe("#toLocaleString", function() {
             it("should mirror the functionality of Array#toLocaleString", function() {
                 const sa = newsa();
                 deepStrictEqual(sa.toLocaleString(), expected.toLocaleString());
+            });
+            it("should not error in a circular array", function() {
+                const sa = new SortedArray<SortedArray<any>>(() => 0);
+                sa.add(sa);
+                strictEqual(sa.toLocaleString(), "[Circular]");
             });
         });
         describe("#pop", function() {

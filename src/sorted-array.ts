@@ -415,11 +415,23 @@ export class SortedArray<T> implements Array<T> {
     // INTERFACE METHODS
     public toString(): string {
         this._sort();
-        return this.unwrap().toString();
+        const unwrapped = this.unwrap();
+        for (let i = 0; i < unwrapped.length; i++) {
+            if (unwrapped[i] as any === this) {
+                unwrapped[i] = "[Circular]" as unknown as T;
+            }
+        }
+        return unwrapped.toString();
     }
     public toLocaleString(): string {
         this._sort();
-        return this.unwrap().toLocaleString();
+        const unwrapped = this.unwrap();
+        for (let i = 0; i < unwrapped.length; i++) {
+            if (unwrapped[i] as any === this) {
+                unwrapped[i] = "[Circular]" as unknown as T;
+            }
+        }
+        return unwrapped.toLocaleString();
     }
     public pop(): T {
         this._sort();
