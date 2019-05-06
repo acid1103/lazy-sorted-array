@@ -396,9 +396,9 @@ describe("SortedArray", function() {
                 deepStrictEqual(sa.toString(), expected.toString());
             });
             it("should not error in a circular array", function() {
-                const sa = new SortedArray<SortedArray<any>>(() => 0);
-                sa.add(sa);
-                strictEqual(sa.toString(), "[Circular]");
+                const sa = new SortedArray<SortedArray<any>>();
+                sa.add(null, sa);
+                strictEqual(sa.toString(), "[Circular],");
             });
         });
         describe("#toLocaleString", function() {
@@ -407,9 +407,9 @@ describe("SortedArray", function() {
                 deepStrictEqual(sa.toLocaleString(), expected.toLocaleString());
             });
             it("should not error in a circular array", function() {
-                const sa = new SortedArray<SortedArray<any>>(() => 0);
-                sa.add(sa);
-                strictEqual(sa.toLocaleString(), "[Circular]");
+                const sa = new SortedArray<SortedArray<any>>();
+                sa.add(null, sa);
+                strictEqual(sa.toLocaleString(), "[Circular],");
             });
         });
         describe("#pop", function() {

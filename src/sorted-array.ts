@@ -196,7 +196,8 @@ export class SortedArray<T> implements Array<T> {
     private static handler = new Handler();
     [n: number]: T; public length: number;
     private array: Array<SANode<T>>; private sorted: boolean; private insertionCounter: number;
-    private originalCompareFn: (a: T, b: T) => number; private compareFn: (a: SANode<T>, b: SANode<T>) => number;
+    private sorting: boolean; private originalCompareFn: (a: T, b: T) => number;
+    private compareFn: (a: SANode<T>, b: SANode<T>) => number;
 
     /**
      * Constructs a new `SortedArray`
@@ -744,7 +745,12 @@ export class SortedArray<T> implements Array<T> {
      * Sorts this array if it isn't already sorted
      */
     private _sort() {
-        if (!this.sorted) { this.array.sort(this.compareFn); }
+        if (!this.sorted && !this.sorting) {
+            // fix for circular array causing max call stack if sort function contains a call to toString (#5)
+            this.sorting = true;
+            this.array.sort(this.compareFn);
+            this.sorting = false;
+        }
         this.sorted = true;
     }
     /**
