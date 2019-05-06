@@ -9,14 +9,9 @@
             "*": ["node_modules/*"]
         },
         "declaration": true,
-        "sourceMap": true,
-        // "removeComments": true
+        "sourceMap": true
     },
     "include": [
         "src/*"
-    ],
-    "jsdoc": {
-        "out": "docs",
-        "access": "public"
-    }
+    ]
 }

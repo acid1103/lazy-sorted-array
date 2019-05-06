@@ -7,8 +7,8 @@ node_js:
   - "node"
   - 10
 
-install: npm i && cd test && npm i && cd ..
+install: npm run install
 
 script: npm run travis
 
-after_script: cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
+after_script: npm run report-coverage
