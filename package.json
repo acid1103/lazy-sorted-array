@@ -12,7 +12,7 @@
     "travis-install": "npm i && cd test && npm i",
     "travis-script": "nyc --reporter=lcov npm test",
     "travis-coverage": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "publish": "npm whoami && npm run coverage && npm publish"
+    "npm-publish": "npm whoami && npm run coverage && npm publish"
   },
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",
