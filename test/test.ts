@@ -398,7 +398,7 @@ describe("SortedArray", function() {
             it("should not error in a circular array", function() {
                 const sa = new SortedArray<SortedArray<any>>();
                 sa.add(null, sa);
-                strictEqual(sa.toString(), "[Circular]");
+                strictEqual(sa.toString(), "[Circular],");
             });
         });
         describe("#toLocaleString", function() {
@@ -409,7 +409,7 @@ describe("SortedArray", function() {
             it("should not error in a circular array", function() {
                 const sa = new SortedArray<SortedArray<any>>();
                 sa.add(null, sa);
-                strictEqual(sa.toLocaleString(), "[Circular]");
+                strictEqual(sa.toLocaleString(), "[Circular],");
             });
         });
         describe("#pop", function() {
