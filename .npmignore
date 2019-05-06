@@ -1,0 +1,7 @@
+!dist/
+dist/sorted-array.js.map
+src/
+test/
+.travis.yml
+tsconfig.json
+tslint.json

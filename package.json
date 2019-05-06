@@ -9,9 +9,10 @@
     "lint": "tslint --project . && tslint --project test/",
     "test": "npm run lint && npm run build && cd test && npm test",
     "coverage": "nyc --reporter=html npm test",
-    "install": "npm i && cd test && npm i",
-    "travis": "nyc --reporter=lcov npm test",
-    "report-coverage": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+    "travis-install": "npm i && cd test && npm i",
+    "travis-script": "nyc --reporter=lcov npm test",
+    "travis-coverage": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "publish": "npm whoami && npm run coverage && npm publish"
   },
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",

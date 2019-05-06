@@ -7,8 +7,8 @@ node_js:
   - "node"
   - 10
 
-install: npm run install
+install: npm run travis-install
 
-script: npm run travis
+script: npm run travis-script
 
-after_script: npm run report-coverage
+after_script: npm run travis-coverage
