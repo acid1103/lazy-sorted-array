@@ -1,5 +1,8 @@
-!dist/
+.nyc_output/
+.vscode/
+coverage/
 dist/sorted-array.js.map
+node_modules/
 src/
 test/
 .travis.yml
