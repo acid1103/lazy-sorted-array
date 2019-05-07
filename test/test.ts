@@ -613,6 +613,12 @@ describe("SortedArray", function() {
         });
         describe("#includes", function() {
             // XXX: These are very preliminary tests which need to be redone!
+            /*
+            fromIndex: positive
+                       negative
+            toIndex:   positive
+                       negative
+            */
             it("simple test", function() {
                 const sa = newsa();
                 const result = sa.includes([0, 7]);
@@ -1017,8 +1023,8 @@ describe("SortedArray", function() {
         });
     });
     context("inner functionality tests", function() {
-        describe("search min and max", function() {
-            it("must be positive finite integers", function() {
+        describe("search function", function() {
+            it("min and max must be positive finite integers", function() {
                 const sa = newsa();
                 throws(
                     () => sa.includes([0, 0], NaN), {
@@ -1043,6 +1049,15 @@ describe("SortedArray", function() {
                     () => sa.includes([0, 0], 0, 0.5), {
                         message: "max must be a positive finite integer and must not be larger than the length of " +
                             "this array!",
+                        name: "Error",
+                    },
+                );
+            });
+            it("min must be less than max", function() {
+                const sa = newsa();
+                throws(
+                    () => sa.includes([0, 0], 10, 0), {
+                        message: "min must be less than max!",
                         name: "Error",
                     },
                 );

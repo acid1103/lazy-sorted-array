@@ -354,6 +354,7 @@ export class SortedArray<T> implements Array<T> {
     } | {
         eq: FindResult<T>,
     } {
+        this._sort();
         const result = this.search(obj);
         if (result.found) {
             return {
@@ -844,6 +845,7 @@ export class SortedArray<T> implements Array<T> {
             max = this.array.length - 1;
         }
         if (this.array.length === 0) { return { index: 0, found: false }; }
+        if (min > max) { throw new Error("min must be less than max!"); }
 
         this._sort();
         const searchObj = this.wrapOne(obj, true);
@@ -869,7 +871,7 @@ export class SortedArray<T> implements Array<T> {
      * the `nth` index is returned. `n` can be negative and performs is a special way in that case. For documentation on
      * that special case, see `SortedArray.findNth`.
      */
-    private searchNth(obj: T, n: number, min?: number, max?: number, exact?: boolean) {
+    private searchNth(obj: T, n?: number, min?: number, max?: number, exact?: boolean) {
         let direction;
         let offset;
         if (n !== undefined) {
@@ -879,17 +881,15 @@ export class SortedArray<T> implements Array<T> {
 
         if (exact) {
             let result;
-            // currently none of the public functions allow n to be undefined. if that functionality is desired in the
-            // future, uncomment the below and of course make n optional
-            // if (n === undefined) {
-            //     result = this.searchExact(obj, min, max);
-            //     if (result.length > 0) {
-            //         return { index: result[0], found: true };
-            //     } else {
-            //         // see "there's no real meaningful index" comment below. the same applies here.
-            //         return { index: -1, found: false };
-            //     }
-            // }
+            if (n === undefined) {
+                result = this.searchExact(obj, min, max);
+                if (result.length > 0) {
+                    return { index: result[0], found: true };
+                } else {
+                    // see "there's no real meaningful index" comment below. the same applies here.
+                    return { index: -1, found: false };
+                }
+            }
             result = this.searchExact(obj, min, max);
             if (offset >= result.length) {
                 // there's no real meaningful index which can be provided in this situation. the entries in result
