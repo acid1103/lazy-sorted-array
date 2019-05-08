@@ -839,7 +839,6 @@ export class SortedArray<T> implements Array<T> {
                 throw new Error(
                     "max must be a positive finite integer and must not be larger than the length of this array!");
             }
-            --max;
         } else {
             max = this.array.length - 1;
         }
@@ -950,7 +949,7 @@ export class SortedArray<T> implements Array<T> {
 
         let i;
         const results = [];
-        for (i = result.index; i < max && this.originalCompareFn(obj, this.array[i].obj) === 0; i++) {
+        for (i = result.index; i <= max && this.originalCompareFn(obj, this.array[i].obj) === 0; i++) {
             results.push(i);
         }
         for (i = result.index - 1; i >= min && this.originalCompareFn(obj, this.array[i].obj) === 0; i--) {

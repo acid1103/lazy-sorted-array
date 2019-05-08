@@ -308,6 +308,11 @@ describe("SortedArray", function() {
                     strictEqual(obj, exact);
                 }
             });
+            it("should not have off-by-one errors", function() {
+                const sa = new SortedArray((a, b) => a - b, [1, 1, 1, 1, 1]);
+                const result = sa.findAll(1);
+                strictEqual(result.length, 5);
+            });
         });
         describe("#findNearest", function() {
             it("should return { lt: undefined, gt: undefined } if the array is empty", function() {
