@@ -1,6 +1,6 @@
 # Lazy Sorted Array [![Build Status](https://travis-ci.org/acid1103/lazy-sorted-array.svg?branch=master)](https://travis-ci.org/acid1103/lazy-sorted-array) [![Coverage Status](https://coveralls.io/repos/github/acid1103/lazy-sorted-array/badge.svg?branch=master)](https://coveralls.io/github/acid1103/lazy-sorted-array?branch=master) [![NPM version](https://img.shields.io/npm/v/lazy-sorted-array.svg?color=success)](https://www.npmjs.com/package/lazy-sorted-array)
 
-Lazy Sorted Array is a sorted array library written purely in TypeScript. It implements a [lazy sort](https://github.com/acid1103/test/blob/master/README.md#lazy-sort), as well as [insertion ordering](https://github.com/acid1103/test/blob/master/README.md#insertion-order). It also supports most functions supported by the default javascript Array, including indexing via bracket notation, `for...of` iteration, and manual adjustment of the `length` property.
+Lazy Sorted Array is a sorted array library written purely in TypeScript. It implements a [lazy sort](https://github.com/acid1103/lazy-sorted-array/blob/master/README.md#lazy-sort), as well as [insertion ordering](https://github.com/acid1103/lazy-sorted-array/blob/master/README.md#insertion-order). It also supports most functions supported by the default javascript Array, including indexing via bracket notation, `for...of` iteration, and manual adjustment of the `length` property.
 
 ## Using
 To install Lazy Sorted Array, simply use your package manager of choice:
