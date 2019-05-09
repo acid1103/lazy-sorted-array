@@ -1,3 +1,5 @@
+conditions: v0
+
 language: node_js
 os:
   - windows
