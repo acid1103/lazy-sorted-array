@@ -81,7 +81,7 @@ async function getTravisIgnore() {
 async function getDiff() {
     return new Promise((resolve, reject) => {
         exec(
-            "git diff @~21..@ --name-only",
+            "git diff @~..@ --name-only",
             (error, stdout) => {
                 if (error) {
                     reject(error);
