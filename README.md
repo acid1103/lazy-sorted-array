@@ -47,7 +47,7 @@ Finds the `nth` entry of the given `obj` in the array. If `exact` is true, finds
 
 **Specifications for `n`**
 
-`findNth` works as defined above for all positive `n`. For negative `n` (including `-0`,) indexing begins starting from the **last** object in the array which matches `obj` and advances backwards `-n` times.
+`findNth` works as defined above for all positive `n`. For negative `n` (including `-0`,) indexing begins starting from the **last** object in the array which matches `obj` and advances backwards `-n` times. `n` may also be `undefined`. In this case, the first entry found which which matches `obj` is returned. No guarantee is made about the entry's location relative to other entries which match `obj`.
 
 **Examples**
 

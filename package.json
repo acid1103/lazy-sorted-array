@@ -1,6 +1,6 @@
 {
   "name": "lazy-sorted-array",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A sorted array which sorts lazily, written entirely in TypeScript",
   "main": "./dist/sorted-array.js",
   "typings": "./dist/sorted-array.d.ts",

@@ -261,7 +261,9 @@ export class SortedArray<T> implements Array<T> {
      * **Specifications for `n`**
      * 
      * `findNth` works as defined above for all positive `n`. For negative `n` (including `-0`,) indexing begins
-     * starting from the **last** object in the array which matches `obj` and advances backwards `-n` times.
+     * starting from the **last** object in the array which matches `obj` and advances backwards `-n` times. `n` may
+     * also be `undefined`. In this case, the first entry found which which matches `obj` is returned. No guarantee is
+     * made about the entry's location relative to other entries which match `obj`.
      * 
      * **Examples**
      * 
@@ -290,7 +292,7 @@ export class SortedArray<T> implements Array<T> {
      * sa.findNth(exact, -1, true);   // -> { obj: [3, 1], index: 5 }
      * ```
      */
-    public findNth(obj: T, n: number, exact?: boolean): FindResult<T> | undefined {
+    public findNth(obj: T, n?: number, exact?: boolean): FindResult<T> | undefined {
         this._sort();
         const result = this.searchNth(obj, n, undefined, undefined, exact);
         if (!result.found) {
