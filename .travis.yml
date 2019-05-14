@@ -7,6 +7,8 @@ node_js:
   - "node"
   - 10
 
+cache: npm
+
 install: npm run travis-install
 
 script: npm run travis-script
