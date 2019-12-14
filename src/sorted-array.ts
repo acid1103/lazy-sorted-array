@@ -512,7 +512,7 @@ export class SortedArray<T> implements Array<T> {
      */
     public splice(start: number, deleteCount?: number): T[];
     public splice(start: number, deleteCount?: number, ...items: T[]): T[] {
-        if (items && items.length > 0) {
+        if (items?.length > 0) {
             throw new Error("splice is an invalid operation on a sorted array when providing replacement items");
         }
         this._sort();
@@ -730,7 +730,8 @@ export class SortedArray<T> implements Array<T> {
         keys: boolean;
         values: boolean;
     } {
-        // Array.prototype[Symbol.unscopables] is not a function, despite tsc insisting that it is.....
+        // Array.prototype[Symbol.unscopables] is not a function, despite tsc insisting that it is.
+        // (See https://github.com/microsoft/TypeScript/issues/34610)
         return Array.prototype[Symbol.unscopables] as unknown as {
             copyWithin: boolean;
             entries: boolean;
@@ -787,7 +788,7 @@ export class SortedArray<T> implements Array<T> {
      */
     private wrapOne(obj: T, emulateEndInsertion?: boolean, emulateEndInsertionIncrement?: number) {
         // get the effective index of this (potentially emulated) wrap
-        let index = this.insertionCounter + (emulateEndInsertionIncrement || 0);
+        let index = this.insertionCounter + (emulateEndInsertionIncrement ?? 0);
         if (!emulateEndInsertion) {
             // if we're not emulating, increment this.elementSeen and ensure we're still within safe bounds
             this.insertionCounter++;
